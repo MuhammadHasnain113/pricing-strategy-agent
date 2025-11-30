@@ -86,13 +86,55 @@ docker-compose -f docker/docker-compose.yml up --build
 ```
 See [docker/Dockerfile](docker/Dockerfile) and [docker/docker-compose.yml](docker/docker-compose.yml).
 
-## Deployment — Railway
+## Deployment
 
-This project is configured for deployment on Railway. The deployment uses either:
-- **Dockerfile** (in `docker/Dockerfile`) - Railway will automatically detect and use this
+### Deployment — Vercel
+
+This project is configured for deployment on Vercel as a serverless FastAPI application.
+
+#### Vercel Deployment Steps:
+
+1. **Connect your repository to Vercel:**
+   - Go to [Vercel](https://vercel.com)
+   - Sign in with your GitHub account
+   - Click "New Project"
+   - Import your repository: `MuhammadHasnain113/pricing-strategy-agent`
+
+2. **Configure the deployment:**
+   - Vercel will automatically detect the `vercel.json` configuration
+   - The project uses Python 3.x runtime
+   - Framework Preset: Leave as "Other" or "Python"
+
+3. **Environment Variables (if needed):**
+   - Add any required environment variables in Vercel's project settings
+   - Go to Settings → Environment Variables
+   - The app will use default values if not set
+
+4. **Deploy:**
+   - Click "Deploy"
+   - Vercel will automatically build and deploy your application
+   - Check the deployment logs for any issues
+
+#### Vercel Configuration Files:
+- `vercel.json` - Vercel deployment configuration
+- `api/index.py` - Serverless function entry point
+- `.vercelignore` - Files to exclude from deployment
+
+#### Notes:
+- The app is deployed as a serverless function on Vercel
+- The model file (`src/models/psa_model_v1.pkl`) is optional - the app will work with a fallback if the model is not present
+- Health check endpoint is available at `/health`
+- API endpoints:
+  - Health: `/health`
+  - Pricing API: `/api/v1/pricing/recommend`
+
+### Deployment — Railway (Alternative)
+
+This project also supports deployment on Railway. The deployment uses either:
+- **Dockerfile** (in root or `docker/Dockerfile`) - Railway will automatically detect and use this
 - **Procfile** - Alternative method if Dockerfile is not used
 
-### Railway Deployment Steps:
+#### Railway Deployment Steps:
 
 1. **Connect your repository to Railway:**
    - Go to [Railway](https://railway.app)
@@ -100,7 +142,7 @@ This project is configured for deployment on Railway. The deployment uses either
    - Connect your GitHub/GitLab repository
 
 2. **Configure the deployment:**
-   - Railway will automatically detect the Dockerfile in `docker/Dockerfile`
+   - Railway will automatically detect the Dockerfile
    - Or it will use the `Procfile` if Dockerfile is not found
    - The `railway.json` file provides additional configuration
 
@@ -112,7 +154,7 @@ This project is configured for deployment on Railway. The deployment uses either
    - Railway will automatically build and deploy on every push to your main branch
    - Check the deployment logs in Railway dashboard for any issues
 
-### Notes:
+#### Notes:
 - The app will automatically bind to the `PORT` environment variable provided by Railway
 - The model file (`src/models/psa_model_v1.pkl`) is optional - the app will work with a fallback if the model is not present
 - Health check endpoint is available at `/health`
