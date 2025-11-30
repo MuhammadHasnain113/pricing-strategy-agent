@@ -1,36 +1,90 @@
-__pycache__
-*.pyc
-*.pyo
-*.pyd
-.Python
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
 *.so
 *.egg
-*.egg-info
-dist
-build
-.venv
-venv
-env
+*.egg-info/
+dist/
+build/
+.Python
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Environment files
 .env
-.git
+.env.local
+.env.*.local
+
+# Git
+.git/
 .gitignore
+
+# Documentation
 *.md
-notebooks
-data
-.vscode
-.idea
-*.log
-.pytest_cache
-.coverage
-htmlcov
-.DS_Store
-docker
-scripts
-datasets
+docs/
+VERCEL_DEPLOYMENT.md
+RAILWAY_DEPLOYMENT.md
+README.md
+
+# Data and datasets
+data/
+datasets/
+*.csv
+*.parquet
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.model
+*.joblib
+
+# Notebooks
+notebooks/
 *.ipynb
-railway.json
-Procfile
+*.ipynb_checkpoints
+
+# Docker and deployment files
+docker/
 Dockerfile
 .dockerignore
-RAILWAY_DEPLOYMENT.md
+docker-compose.yml
+Procfile
+railway.json
 
+# Scripts (not needed for runtime)
+scripts/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+tests/
+
+# Web assets (if not needed)
+src/web/
+
+# Large ML model files
+src/models/*.pkl
+src/models/*.model
+src/models/*.joblib
+
+# Logs
+*.log
+logs/
+
+# Other
+LICENSE
