@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 fastapi
 uvicorn[standard]
 pandas
@@ -8,14 +7,3 @@ joblib
 pydantic
 pytest
 python-dotenv
-=======
-fastapi
-uvicorn[standard]
-pandas
-numpy
-scikit-learn
-joblib
-pydantic
-pytest
-python-dotenv
->>>>>>> a6c208fbe697c7e2b7488e965fb1ee7919f9eecf
